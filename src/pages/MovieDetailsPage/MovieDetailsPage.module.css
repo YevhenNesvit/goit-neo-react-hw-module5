@@ -1,0 +1,34 @@
+.details {
+  display: flex;
+  padding: 20px;
+}
+
+img {
+  max-width: 300px;
+  margin-right: 20px;
+}
+
+.links {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.links a {
+  color: #0077ff;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.back {
+  margin-top: 20px;
+  color: #0077ff;
+  text-decoration: none;
+}
+
+.back:hover {
+  text-decoration: underline;
+}
