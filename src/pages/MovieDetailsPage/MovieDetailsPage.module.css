@@ -1,34 +1,48 @@
 .details {
-  display: flex;
-  padding: 20px;
+  padding: 20px; /* Додано паддінг для відступів */
 }
 
-img {
-  max-width: 300px;
-  margin-right: 20px;
-}
-
-.links {
-  display: flex;
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.links a {
-  color: #0077ff;
-  text-decoration: none;
-}
-
-.links a:hover {
-  text-decoration: underline;
+.navLinks {
+  display: flex; /* Використання флекс-контейнера для горизонтального розміщення */
+  gap: 20px; /* Відстань між лінками */
 }
 
 .back {
-  margin-top: 20px;
-  color: #0077ff;
-  text-decoration: none;
+  background-color: #f0f0f0;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 20px 0; /* Відступ зверху та знизу */
+  font-size: 14px;
+  border-radius: 5px;
 }
 
-.back:hover {
-  text-decoration: underline;
+.movieContent {
+  display: flex; /* Флекс-контейнер для афіші та інформації про фільм */
+  margin-bottom: 20px; /* Відступ знизу */
+}
+
+.poster {
+  width: 100%; /* Адаптивна ширина */
+  max-width: 400px; /* Максимальна ширина для зображення */
+  height: auto; /* Автоматична висота */
+  margin-right: 20px; /* Відступ справа */
+}
+
+.movieInfo {
+  max-width: 500px; /* Максимальна ширина для інформації про фільм */
+  text-align: left; /* Вирівнювання тексту вліво */
+}
+
+.separator {
+  margin: 20px 0; /* Відступи зверху та знизу */
+  border: 0; /* Без стандартного бордюру */
+  height: 1px; /* Висота лінії */
+  background-color: #ccc; /* Колір лінії */
+}
+
+.additionalLinks {
+  display: flex;
+  flex-direction: column; /* Вертикальне розміщення лінків */
+  gap: 10px; /* Відстань між лінками */
 }
