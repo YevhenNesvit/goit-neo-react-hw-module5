@@ -13,3 +13,8 @@
 .review p {
   margin: 0 0 10px 0;
 }
+
+.noReviews {
+  font-size: 18px;
+  margin-top: 20px;
+}
