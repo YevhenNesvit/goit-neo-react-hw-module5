@@ -1,4 +1,4 @@
-import { useParams, Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './MovieDetailsPage.module.css';
@@ -6,11 +6,12 @@ import styles from './MovieDetailsPage.module.css';
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const location = useLocation();
 
   // Отримуємо адресу, з якої прийшли, або корінь
   const fromPage = location.state?.from || '/';
+  console.log(location);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -34,20 +35,21 @@ const MovieDetailsPage = () => {
 
   if (!movie) return <p>Loading...</p>;
 
-  const handleGoBack = () => {
-    // Повертаємося на адресу, звідки прийшли
-    navigate(fromPage);
-  };
+  // const handleGoBack = () => {
+  //   // Повертаємося на адресу, звідки прийшли
+  //   navigate(fromPage);
+  // };
 
   return (
     <div className={styles.details}>
       {/* Кнопка Go Back над зображенням */}
-      <button 
+      <Link 
+        to={location.state}
         className={styles.back} 
-        onClick={handleGoBack} // Виклик функції для повернення
+        //onClick={handleGoBack} // Виклик функції для повернення
       >
         Go back
-      </button>
+      </Link>
 
       <div className={styles.movieContent}>
         <img 
