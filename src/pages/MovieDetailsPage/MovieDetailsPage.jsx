@@ -1,17 +1,13 @@
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState , useRef} from 'react';
 import axios from 'axios';
 import styles from './MovieDetailsPage.module.css';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  //const navigate = useNavigate();
   const location = useLocation();
-
-  // Отримуємо адресу, з якої прийшли, або корінь
-  const fromPage = location.state?.from || '/';
-  console.log(location);
+  const backPath = useRef(location.state);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -35,18 +31,12 @@ const MovieDetailsPage = () => {
 
   if (!movie) return <p>Loading...</p>;
 
-  // const handleGoBack = () => {
-  //   // Повертаємося на адресу, звідки прийшли
-  //   navigate(fromPage);
-  // };
-
   return (
     <div className={styles.details}>
       {/* Кнопка Go Back над зображенням */}
       <Link 
-        to={location.state}
-        className={styles.back} 
-        //onClick={handleGoBack} // Виклик функції для повернення
+        to={backPath.current}
+        className={styles.back}
       >
         Go back
       </Link>
@@ -67,8 +57,8 @@ const MovieDetailsPage = () => {
       <h3>Additional information</h3>
       <div className={styles.additionalLinks}>
         {/* Додаємо state для лінків Cast і Reviews */}
-        <Link to="cast" state={{ from: fromPage }}>Cast</Link>
-        <Link to="reviews" state={{ from: fromPage }}>Reviews</Link>
+        <Link to="cast">Cast</Link>
+        <Link to="reviews">Reviews</Link>
       </div>
       <hr className={styles.separator} />
       <Outlet />
