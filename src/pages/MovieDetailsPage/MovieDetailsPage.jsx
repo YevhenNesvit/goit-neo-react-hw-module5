@@ -52,13 +52,14 @@ const MovieDetailsPage = () => {
         <div className={styles.movieInfo}>
           <h2>{movie.title}</h2>
           <p>{movie.overview}</p>
+          <p><strong>Average vote: </strong>{movie.vote_average}</p>
+          <p><strong>Genres: </strong>{movie.genres.map(genre => genre.name).join(', ')}</p>
         </div>
       </div>
 
       <hr className={styles.separator} />
       <h3>Additional information</h3>
       <div className={styles.additionalLinks}>
-        {/* Додаємо state для лінків Cast і Reviews */}
         <Link to="cast">Cast</Link>
         <Link to="reviews">Reviews</Link>
       </div>

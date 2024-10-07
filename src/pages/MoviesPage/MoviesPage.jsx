@@ -9,7 +9,6 @@ const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Отримуємо параметр query з URL при завантаженні компонента
   useEffect(() => {
     const queryParam = searchParams.get('query');
     if (queryParam) {
@@ -30,11 +29,10 @@ const MoviesPage = () => {
           console.error('Error fetching movies:', error);
         }
       };
-      fetchMovies(); // Викликаємо функцію для отримання фільмів
+      fetchMovies();
     }
-  }, [searchParams]); // Оновлюється при зміні параметрів запиту
+  }, [searchParams]);
 
-  // Обробка сабміту форми
   const handleSubmit = (e) => {
     e.preventDefault();
     if (query.trim()) {
