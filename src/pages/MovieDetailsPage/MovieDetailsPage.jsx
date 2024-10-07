@@ -1,5 +1,5 @@
-import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
-import { useEffect, useState , useRef} from 'react';
+import { useParams, Link, Outlet, useLocation, useNavigate  } from 'react-router-dom';
+import { useEffect, useState , useRef } from 'react';
 import axios from 'axios';
 import styles from './MovieDetailsPage.module.css';
 
@@ -8,6 +8,7 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   const location = useLocation();
   const backPath = useRef(location.state);
+  const naivigate = useNavigate();
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -33,14 +34,15 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={styles.details}>
-      {/* Кнопка Go Back над зображенням */}
-      <Link 
-        to={backPath.current}
+      <button
+        onClick={() => naivigate(backPath.current)}
         className={styles.back}
       >
         Go back
-      </Link>
-
+      </button>
+      
+      <br />
+      <br />
       <div className={styles.movieContent}>
         <img 
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
