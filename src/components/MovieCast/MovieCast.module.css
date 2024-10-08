@@ -1,9 +1,17 @@
 .castList {
   list-style: none;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
 }
 
 .actor {
   font-size: 18px;
   margin-bottom: 10px;
+}
+
+.poster {
+  width: 100%;
+  max-width: 200px;
 }
